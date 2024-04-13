@@ -1,24 +1,45 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main () {
 
-	int n1,n2;
+	double n1,n2;
 	char operation;
-
-	printf("Enter the operator(+,-,*,/):");
- 	scanf("%c", &operation);
-
- 	printf("Enter the two inputs:\n");
- 	scanf("%d%d", &n1, &n2);
-
-	switch (operation) {
 	
-		case '+':
-			printf("Addition of %d and %d is %d\n", n1, n2, n1 + n2);
-    			break;		
-		default:
-            		printf("Error! operator is not correct\n");	
-	}
+	while (1) {
+		printf("press x to exit:\n"
+		       "Enter the operator(+,-,*,/):");
+ 		scanf(" %c", &operation);
+		
+		if (operation == 'x') {
+			exit(0);
+		}
+
+ 		printf("Enter the two inputs:\n");
+ 		scanf("%lf %lf", &n1, &n2);
+
+
+		switch (operation) {
+			case '+':
+            			printf("%.1lf + %.1lf = %.1lf\n", n1, n2, n1 + n2);
+            			break;
  
+        		case '-':
+            			printf("%.1lf - %.1lf = %.1lf\n", n1, n2, n1 - n2);
+            			break;
+ 
+        		case '*':
+            			printf("%.1lf * %.1lf = %.1lf\n", n1, n2, n1 * n2);
+            			break;
+ 
+        		case '/':
+            			printf("%.1lf / %.1lf = %.1lf\n", n1, n2, n1 / n2);
+            			break;
+			default:
+           			 printf("Error! please write a valid operator\n");
+       			 
+		}
+	}
+
 	return 0;
 }
